@@ -1,0 +1,16 @@
+[package]
+name = "iodine"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+syn = "1.0.102"
+iodine_core = { path = "iodine_core" }
+
+[lib]
+proc-macro = true
+
+[workspace]
+members = [
+    "iodine_core"
+]
