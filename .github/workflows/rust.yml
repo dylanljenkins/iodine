@@ -23,5 +23,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions-rs/audit-check@v1.2.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
     - name: Run tests
       run: cargo test --verbose
