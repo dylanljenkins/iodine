@@ -12,5 +12,6 @@ proc-macro = true
 
 [workspace]
 members = [
-    "iodine_core"
+    "iodine_core",
+    "iodine_tests"
 ]
