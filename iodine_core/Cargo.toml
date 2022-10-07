@@ -1,0 +1,12 @@
+[package]
+name = "iodine_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+syn = "1.0.102"
+derive-syn-parse = "0.1.5"
+quote = { version = "1.0.21" }
+proc-macro2 = { version = "1.0.46" }
+serde = "1.0.145"
+serde_json = "1.0.85"
