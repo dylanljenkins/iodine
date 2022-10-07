@@ -9,20 +9,19 @@ pub struct IodineInput {
     _comma_1: Token![,],
     test: syn::Ident,
     _comma_2: Token![,],
-    test_input_type: syn::Ident,
+    input_type: syn::Ident,
 }
 
 pub fn generate_test_tokens(input: IodineInput) -> TokenStream {
     let filename = input.filename;
     let test = input.test;
-    let test_input_type = input.test_input_type;
+    let test_input_type = input.input_type;
 
     let output = quote! {
         #[test]
         pub fn test1() {
-
-            println!(#filename)
-            #test(#test_input_type)
+            println!(#filename);
+            #test()
         }
     };
 
@@ -33,7 +32,7 @@ pub fn generate_test_tokens(input: IodineInput) -> TokenStream {
 mod tests {
     use crate::{generate_test_tokens, IodineInput};
     use proc_macro2::Span;
-    use syn::{Ident, LitStr};
+    use syn::LitStr;
 
     #[test]
     fn test_generation() {
@@ -54,7 +53,7 @@ mod tests {
             _comma_2: syn::token::Comma {
                 spans: [Span::call_site()],
             },
-            test_input_type: syn::Ident::new("TestInput", Span::call_site()),
+            input_type: syn::Ident::new("TestInput", Span::call_site()),
         });
 
         println!("{tokens:?}")
